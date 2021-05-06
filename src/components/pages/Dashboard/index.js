@@ -4,27 +4,28 @@ import firebase from '../../../config/Firebase';
 const Dashboard = () => {
     
     const [fullName, setFullName] = useState("");
-    const [course, setCourse] = useState([]);
+    const [course, setCourse] = useState("");
     const [cost, setCost] = useState("");
+    const [lesson, setLesson] = useState([]);
     const [button, setButton] = useState("Save");
-    const [selectedCourse, setSelectedCourse] = useState({});
+    const [selectedLesson, setSelectedLesson] = useState({});
 
     useEffect(() => {
         firebase
         .database()
-        .ref("course")
+        .ref("lessons")
         .on("value", (res) => {
             if(res.val()) {
                 //Ubah menjadi array object
                 const rawData = res.val();
-                const courseArr = [];
+                const lessonArr = [];
                 Object.keys(rawData).map(item => {
-                   courseArr.push({
+                   lessonArr.push({
                        id: item,
                        ...rawData[item],
                    });
                 });
-                setCourse(courseArr);
+                setLesson(lessonArr);
         }
         });       
     }, []);
@@ -34,7 +35,7 @@ const Dashboard = () => {
         setCourse("");
         setCost("");
         setButton("Save");
-        setSelectedCourse({});
+        setSelectedLesson({});
     };
 
     const onSubmit = () => {
@@ -44,9 +45,15 @@ const Dashboard = () => {
             cost: cost,
         };
         if(button === 'Save'){
-            firebase.database().ref('course').push(data);
+            firebase
+            .database()
+            .ref('lessons')
+            .push(data);
         }else{
-            firebase.database().ref(`course/${selectedCourse.id}`).set(data);
+            firebase
+            .database()
+            .ref(`lessons/${selectedLesson.id}`)
+            .set(data);
         }
         resetForm();
     };
@@ -55,24 +62,28 @@ const Dashboard = () => {
         setFullName(item.fullName);
         setCourse(item.course);
         setCost(item.cost);
-        setButton(item.button);
-        setSelectedCourse(item.selectedCourse);
+        setButton("Update");
+        setSelectedLesson(item);
     };
 
     const onDeleteData = (item) => {
-        firebase.database().ref(`course/${item.id}`).remove();
+        firebase
+        .database()
+        .ref(`lessons/${item.id}`)
+        .remove();
     };
 
     return (
         <div className="container mt-5">
             <h3>Dashboard</h3>
             <div className="col-6">
+
             <p>Full Name</p>
                 <input
                 className="form-control mb-3"
                 placeholder="Type your full Name"
                 value={fullName}
-                onChange={(e) => setCourse(e.target.value)}
+                onChange={(e) => setFullName(e.target.value)}
                 />
                 <p>Course Name</p>
                 <input
@@ -86,7 +97,7 @@ const Dashboard = () => {
                 className="form-control mb-3"
                 placeholder="Type the cost"
                 value={cost}
-                onChange={(e) => setCourse(e.target.value)}
+                onChange={(e) => setCost(e.target.value)}
                 />
                 <br/>
 
@@ -106,14 +117,14 @@ const Dashboard = () => {
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>FullName</th>
+                        <th>Full Name</th>
                         <th>Course</th>
                         <th>Cost</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {course.map((item) => {
+                    {lesson.map((item) => (
                         <tr key={item.id}>
                             <td>{item.fullName}</td>
                             <td>{item.course}</td>
@@ -131,7 +142,7 @@ const Dashboard = () => {
                                 </button>
                             </td>
                         </tr>
-                    })}
+                    ))}
                 </tbody>
             </table>
         </div>

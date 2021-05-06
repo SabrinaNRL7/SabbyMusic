@@ -1,13 +1,10 @@
-import './App.css';
+import React from 'react';
+import Routes from "./config/Routes";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        Sabby Music
-      </header>
-    </div>
+    <Routes />
   );
-}
+};
 
 export default App;

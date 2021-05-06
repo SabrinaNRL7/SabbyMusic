@@ -70,7 +70,7 @@ const Dashboard = () => {
         firebase
         .database()
         .ref(`lessons/${item.id}`)
-        .remove();
+        .remove()        
     };
 
     return (
@@ -138,7 +138,7 @@ const Dashboard = () => {
 
                                 <button 
                                 className="btn btn-danger"
-                                onClick={() => onDeleteData(item)}>Delete
+                                onClick={()=>onDeleteData(item)}>Delete
                                 </button>
                             </td>
                         </tr>

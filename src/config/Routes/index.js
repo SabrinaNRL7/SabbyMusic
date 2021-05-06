@@ -9,16 +9,16 @@ const Routes = () => {
     return (
         <Router>
             <Switch>
-                <Route exact path="/">
-                    <Dashboard />
-                </Route>
-
                 <Route exact path="/signin">
                     <SignIn title="Welcome To Sabby Music"/>
                 </Route>
 
                 <Route exact path="/signup">
                     <SignUp />
+                </Route>
+                
+                <Route exact path="/">
+                    <Dashboard />
                 </Route>
 
                 <Route exact path="/about">

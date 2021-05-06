@@ -1,24 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import firebase from '../../../config/Firebase';
 import { useHistory } from 'react-router-dom';
 
-const SignIn = ({title, angka}) => { 
-    const [welcomeText, setWelcomeText] = useState("Welcome To Sabby Music");
+const SignIn = ({title, number}) => { 
+    
     const [email, setEmail] = useState ("");
     const [password, setPassword] = useState("");
 
-    let history = useHistory();
-    
-    useEffect(() => {
-        console.log("component did mount");
-    }, []);
-
-    useEffect(() => {
-        console.log("component did update");
-    }, [welcomeText]);
+    let history = useHistory(); 
 
     const handleSubmit = () => {
-        setWelcomeText("Welcome Back");
+       
         const data = {
             email: email,
             password: password,
@@ -32,11 +24,9 @@ const SignIn = ({title, angka}) => {
 
 
     return (
-        //JSX
         <div className="mt-5">
-            <h3>{welcomeText}</h3>
             <h5>
-                {title} {angka}
+                {title} {number}
             </h5>
             <p className="form-label">Email</p>
             <input

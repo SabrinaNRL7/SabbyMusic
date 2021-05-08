@@ -10,7 +10,7 @@ const HomeScreen = () => {
         <NavBar />
         <br/>
         <Container>
-        <img src={Loggo} alt="Logo" className="img-fluid"/> 
+        <img src={Loggo} alt="Logo" className="img-fluid" width="53%"/> 
         </Container>
         <Link className="nav-link" to="/signin" >Sign In</Link>             
         <Link className="nav-link" to="/signup" >Sign Up</Link>

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import firebase from '../../../config/Firebase';
+import NavBar from '../../molecules/NavBar';
 
 const Dashboard = () => {
     
@@ -74,7 +75,9 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="container mt-5">
+        <div className="container">
+            <NavBar />
+            <br />
             <h3>Dashboard</h3>
             <div className="col-6">
 

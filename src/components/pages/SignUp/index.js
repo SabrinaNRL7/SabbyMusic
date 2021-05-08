@@ -3,7 +3,7 @@ import firebase from '../../../config/Firebase';
 import { useHistory } from 'react-router-dom';
 
 
-const Register = () => {
+const SignUp = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -33,7 +33,7 @@ const Register = () => {
     setPassword('');
     
     //Redirect ke halaman log in
-    history.push("/login");
+    history.push("/signin");
   })
   .catch((error) => {
    console.log(error);
@@ -78,4 +78,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default SignUp;

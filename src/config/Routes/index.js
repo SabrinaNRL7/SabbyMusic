@@ -4,11 +4,16 @@ import SignIn from '../../components/pages/SignIn';
 import SignUp from '../../components/pages/SignUp';
 import About from '../../components/pages/About';
 import Dashboard from '../../components/pages/Dashboard';
+import HomeScreen from '../../components/pages/HomeScreen';
 
 const Routes = () => {
     return (
         <Router>
             <Switch>
+                 <Route exact path="/">
+                    <HomeScreen title="Welcome To Sabby Music"/>
+                </Route>
+
                 <Route exact path="/signin">
                     <SignIn title="Welcome To Sabby Music"/>
                 </Route>
@@ -17,7 +22,7 @@ const Routes = () => {
                     <SignUp />
                 </Route>
                 
-                <Route exact path="/">
+                <Route exact path="/dashboard">
                     <Dashboard />
                 </Route>
 

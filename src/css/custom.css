@@ -1,0 +1,16 @@
+figcaption {
+    position: absolute;
+    bottom: 30rem;
+}
+
+h1 {
+    position: absolute;
+    bottom: 37rem;
+    margin: 0 1rem;
+    color: peru;
+}
+
+loggo {
+    height: 100px;
+    width: 100px;
+}

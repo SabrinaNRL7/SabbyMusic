@@ -18,13 +18,13 @@ const SignIn = ({title, number}) => {
         // console.log(data);
         firebase.auth()
         .signInWithEmailAndPassword(email,password)
-        .then((res) => history.push("/"))
+        .then((res) => history.push("/dashboard"))
         .catch((error) => console.log("Error", error));
     };
 
 
     return (
-        <div className="mt-5">
+        <div className=" container mt-5">
             <h5>
                 {title} {number}
             </h5>

@@ -11,11 +11,11 @@ const Routes = () => {
         <Router>
             <Switch>
                  <Route exact path="/">
-                    <HomeScreen title="Welcome To Sabby Music"/>
+                    <HomeScreen/>
                 </Route>
 
                 <Route exact path="/signin">
-                    <SignIn title="Welcome To Sabby Music"/>
+                    <SignIn/>
                 </Route>
 
                 <Route exact path="/signup">

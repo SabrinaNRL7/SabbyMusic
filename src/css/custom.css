@@ -1,16 +1,22 @@
 figcaption {
     position: absolute;
-    bottom: 30rem;
+    top: 5rem;
+    
 }
 
 h1 {
     position: absolute;
-    bottom: 37rem;
+    top: 2rem;
     margin: 0 1rem;
     color: peru;
 }
 
-loggo {
-    height: 100px;
-    width: 100px;
+.loggo {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    z-index: 1;
+    border-radius: 80%;
+    left: 490px;
+    top: 38px;
 }

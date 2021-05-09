@@ -24,7 +24,7 @@ const SignIn = ({title, number}) => {
 
 
     return (
-        <div className=" container mt-5">
+        <div className=" container mt-5"> 
             <h5>
                 {title} {number}
             </h5>

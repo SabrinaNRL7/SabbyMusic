@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../css/custom.css';
 import image from "../../../assets/Images/page.jpg";
-import imagee from "../../../assets/Images/InkFree.jpg";
+import imagee from "../../../assets/Images/pngtree-music-sign-continuous-one-line-drawing-of-g-key-symbol-minimalism-png-image_1684147.png";
 import {Link} from "react-router-dom";
 
 const HomeScreen = () => {

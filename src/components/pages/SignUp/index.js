@@ -3,7 +3,7 @@ import firebase from '../../../config/Firebase';
 import { useHistory } from 'react-router-dom';
 
 
-const SignUp = () => {
+const SignUp = ({title}) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -44,6 +44,9 @@ const SignUp = () => {
 
     return (
         <div className="container mt-5">
+            <h5>
+                {title}
+            </h5>
             <p className="form-label mt-4">Full Name</p>
             <input
                 className="form-control"

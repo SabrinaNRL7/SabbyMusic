@@ -14,12 +14,12 @@ const Routes = () => {
                     <HomeScreen/>
                 </Route>
 
-                <Route exact path="/signin">
-                    <SignIn/>
+                <Route exact path="/signin" >
+                    <SignIn title="Sign In"/>
                 </Route>
-
+                
                 <Route exact path="/signup">
-                    <SignUp />
+                    <SignUp title="Sign Up"/>
                 </Route>
                 
                 <Route exact path="/dashboard">
